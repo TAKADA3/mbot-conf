@@ -1,0 +1,120 @@
+channel_type: discord
+download_completed_movie:
+  body: "{\n    \"content\": null,\n    \"embeds\": [\n        {\n            \"title\"\
+    : \"✅{{title}}{% if rating %}  ⭐️{{\"%.1f\"|format(rating)}}{% endif %}\",\n \
+    \           \"description\": \"{% if intro %}{{intro}}{% endif %}\",\n       \
+    \     \"url\": \"{{link_url}}\",\n            \"color\": 3688572,\n          \
+    \  \"fields\": [\n              {% if release_info %}{\"name\": \"风格\",\"value\"\
+    : \"{{release_info}}\"}{% endif %}\n              {% if quality %}{% if release_info\
+    \ %},{%endif%}{\"name\": \"品质\",\"value\": \"{{quality}}\",\"inline\": true}{%\
+    \ endif %}\n            ],\n            \"author\": {\n                \"name\"\
+    : \"{% if site_name %}由 {{nickname}} 下载自「{{site_name}}」{% else %}手动添加{% endif\
+    \ %}的电影下载完成\"\n            },\n            \"image\": {\n                \"url\"\
+    : \"{{pic_url}}\"\n            }\n        }\n    ],\n    \"attachments\": []\n\
+    }\n"
+  name: 电影下载完成
+  title: null
+download_completed_tv:
+  body: "{\n    \"content\": null,\n    \"embeds\": [\n        {\n            \"title\"\
+    : \"✅{{title}} {% if season_number %}S{{season_number}}{% endif %}{% if episodes%}E{{episodes}}{%\
+    \ endif %}{% if rating %}  ⭐️{{\"%.1f\"|format(rating)}}{% endif%}\",\n      \
+    \      \"description\": \"{% if intro %}{{intro}}{% endif %}\",\n            \"\
+    url\": \"{{link_url}}\",\n            \"color\": 3688572,\n            \"fields\"\
+    : [\n              {% if release_info %}{\"name\": \"风格\",\"value\": \"{{release_info}}\"\
+    }{% endif %}\n              {% if quality %}{% if release_info %},{%endif%}{\"\
+    name\": \"品质\",\"value\": \"{{quality}}\",\"inline\": true}{% endif %}\n     \
+    \       ],\n            \"author\": {\n                \"name\": \"{% if site_name\
+    \ %}由 {{nickname}} 下载自「{{site_name}}」{% else %}手动添加{% endif %}的剧集下载完成\"\n    \
+    \        },\n            \"image\": {\n                \"url\": \"{{pic_url}}\"\
+    \n            }\n        }\n    ],\n    \"attachments\": []\n}\n"
+  name: 剧集下载完成
+  title: null
+download_start_movie:
+  body: "{\n    \"content\": null,\n    \"embeds\": [\n        {\n            \"title\"\
+    : \"⏬{{title}}{% if rating %}  ⭐️{{\"%.1f\"|format(rating)}}{% endif %}\",\n \
+    \           \"description\": \"{% if intro %}{{intro}}{% endif %}\",\n       \
+    \     \"url\": \"{{link_url}}\",\n            \"color\": 3688572,\n          \
+    \  \"fields\": [\n              {% if release_info %}{\"name\": \"风格\",\"value\"\
+    : \"{{release_info}}\"}{% endif %}\n              {% if quality %}{% if release_info\
+    \ %},{%endif%}{\"name\": \"品质\",\"value\": \"{{quality}}\",\"inline\": true}{%\
+    \ endif %}\n            ],\n            \"author\": {\n                \"name\"\
+    : \"{% if site_name %}由 {{nickname}} 下载自「{{site_name}}」{% else %}手动添加{% endif\
+    \ %}的电影开始下载\"\n            },\n            \"image\": {\n                \"url\"\
+    : \"{{pic_url}}\"\n            }\n        }\n    ],\n    \"attachments\": []\n\
+    }\n"
+  name: 电影开始下载
+  title: null
+download_start_tv:
+  body: "{\n    \"content\": null,\n    \"embeds\": [\n        {\n            \"title\"\
+    : \"⏬{{title}} {% if season_number %}S{{season_number}}{% endif %}{% if episodes%}E{{episodes}}{%\
+    \ endif %}{% if rating %}  ⭐️{{\"%.1f\"|format(rating)}}{% endif%}\",\n      \
+    \      \"description\": \"{% if intro %}{{intro}}{% endif %}\",\n            \"\
+    url\": \"{{link_url}}\",\n            \"color\": 3688572,\n            \"fields\"\
+    : [\n              {% if release_info %}{\"name\": \"风格\",\"value\": \"{{release_info}}\"\
+    }{% endif %}\n              {% if quality %}{% if release_info %},{%endif%}{\"\
+    name\": \"品质\",\"value\": \"{{quality}}\",\"inline\": true}{% endif %}\n     \
+    \       ],\n            \"author\": {\n                \"name\": \"{% if site_name\
+    \ %}由 {{nickname}} 下载自「{{site_name}}」{% else %}手动添加{% endif %}的剧集开始下载\"\n    \
+    \        },\n            \"image\": {\n                \"url\": \"{{pic_url}}\"\
+    \n            }\n        }\n    ],\n    \"attachments\": []\n}\n"
+  name: 剧集开始下载
+  title: null
+name: Discord
+site_error:
+  body: "{\n  \"content\": null,\n  \"embeds\": [\n    {\n      \"title\": \"站点异常\"\
+    ,\n      \"description\": \"访问{{ site_name }}异常，错误原因：{{ reason }}\",\n      \"\
+    color\": 16711680\n    }\n  ],\n  \"attachments\": []\n}\n"
+  name: 站点异常
+  title: null
+sub_from_trending_movie:
+  body: "{\n    \"content\": null,\n    \"embeds\": [\n        {\n            \"title\"\
+    : \"\U0001F37F榜单电影:{{ cn_name }}({{ release_year }}) 评分:{{ rating }}\",\n    \
+    \        \"description\": \"{% if comment %}{{comment}}{% endif %}\",\n      \
+    \      \"url\": \"{{link_url}}\",\n            \"color\": 3688572,\n         \
+    \   \"fields\": [\n              {% if release_info %}{% if nickname %},{%endif%}{\"\
+    name\": \"风格\",\"value\": \"{{release_info}}\",\"inline\": true}{% endif %}\n\
+    \            ],\n            \"author\": {\n                \"name\": \"新增榜单电影订阅\"\
+    \n            },\n            \"image\": {\n                \"url\": \"{{pic_url}}\"\
+    \n            }\n        }\n    ],\n    \"attachments\": []\n}\n"
+  name: 来自榜单的电影订阅
+  title: null
+sub_from_trending_tv:
+  body: "{\n    \"content\": null,\n    \"embeds\": [\n        {\n            \"title\"\
+    : \"\U0001F37F榜单剧集:{{ cn_name }}({{ release_year }}) 评分:{{ rating }}\",\n    \
+    \        \"description\": \"{% if comment %}{{comment}}{% endif %}\",\n      \
+    \      \"url\": \"{{link_url}}\",\n            \"color\": 3688572,\n         \
+    \   \"fields\": [\n              {% if release_info %}{% if nickname %},{%endif%}{\"\
+    name\": \"风格\",\"value\": \"{{release_info}}\",\"inline\": true}{% endif %}\n\
+    \            ],\n            \"author\": {\n                \"name\": \"新增榜单电影订阅\"\
+    \n            },\n            \"image\": {\n                \"url\": \"{{pic_url}}\"\
+    \n            }\n        }\n    ],\n    \"attachments\": []\n}\n"
+  name: 来自榜单的剧集订阅
+  title: null
+sub_movie:
+  body: "{\n    \"content\": null,\n    \"embeds\": [\n        {\n            \"title\"\
+    : \"\U0001F37F订阅：{{ cn_name }} {% if rating %}  ⭐️{{\"%.1f\"|format(rating)}}{%\
+    \ else %}{%if not is_aired %}  未上映{% endif %}{% endif %}\",\n            \"description\"\
+    : \"{% if intro %}{{intro}}{% endif %}\",\n            \"url\": \"{{link_url}}\"\
+    ,\n            \"color\": 3688572,\n            \"fields\": [\n              {%\
+    \ if nickname %}{\"name\": \"用户\",\"value\": \"{{nickname}}\"}{% endif %}\n  \
+    \            {% if release_info %}{% if nickname %},{%endif%}{\"name\": \"风格\"\
+    ,\"value\": \"{{release_info}}\",\"inline\": true}{% endif %}\n            ],\n\
+    \            \"author\": {\n                \"name\": \"新增电影订阅\"\n           \
+    \ },\n            \"image\": {\n                \"url\": \"{{pic_url}}\"\n   \
+    \         }\n        }\n    ],\n    \"attachments\": []\n}\n"
+  name: 新增电影订阅
+  title: null
+sub_tv:
+  body: "{\n    \"content\": null,\n    \"embeds\": [\n        {\n            \"title\"\
+    : \"\U0001F4FA订阅：{{ cn_name }} {% if rating %}  ⭐️{{\"%.1f\"|format(rating)}}{%\
+    \ else %}{%if not is_aired %}  未上映{% endif %}{% endif %}\",\n            \"description\"\
+    : \"{% if intro %}{{intro}}{% endif %}\",\n            \"url\": \"{{link_url}}\"\
+    ,\n            \"color\": 3688572,\n            \"fields\": [\n              {%\
+    \ if nickname %}{\"name\": \"用户\",\"value\": \"{{nickname}}\"}{% endif %}\n  \
+    \            {% if release_info %}{% if nickname %},{%endif%}{\"name\": \"风格\"\
+    ,\"value\": \"{{release_info}}\",\"inline\": true}{% endif %}\n            ],\n\
+    \            \"author\": {\n                \"name\": \"新增剧集订阅\"\n           \
+    \ },\n            \"image\": {\n                \"url\": \"{{pic_url}}\"\n   \
+    \         }\n        }\n    ],\n    \"attachments\": []\n}\n"
+  name: 新增剧集订阅
+  title: null

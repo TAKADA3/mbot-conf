@@ -1,0 +1,12 @@
+doubanlist_sub: {}
+site_signin:
+  notify_fail_type: true
+  notify_image_type: '0'
+  time_type: '0'
+  uid:
+  - 1
+sites_message:
+  img_url: ''
+  uid:
+  - 1
+  word_ignore: ''

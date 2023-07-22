@@ -1,0 +1,102 @@
+channel_type: qywx
+download_completed_movie:
+  body: "上映于{{year}}年{% if site_name %}，由 {{nickname}} 下载自「{{site_name}}」{% else %}\
+    \ 手动下载完成{% endif %} \n{% if media_stream.media_source %}{{media_stream.media_source}}{%\
+    \ else %} 媒体属性未知{% endif %}{% if media_stream.resolution %} · {{media_stream.resolution}}{%\
+    \ endif %}{% if file_size %} · {{file_size}}{% endif %}{% if media_stream.release_team\
+    \ %} · {{media_stream.release_team}}压制{% endif %}\n{% if intro -%}··········································\n\
+    {{intro|replace(' ','')|replace('\n','')}}{%- endif %}"
+  name: 电影下载完成
+  title: ✅{{title}}{% if rating %}  ⭐️{{"%.1f"|format(rating)}}{% endif %}
+download_completed_tv:
+  body: "上映于{{year}}年{% if site_name %}，由 {{nickname}} 下载自「{{site_name}}」{% else %}\
+    \ 手动下载完成{% endif %} \n{% if media_stream.media_source %}{{media_stream.media_source}}{%\
+    \ else %} 媒体属性未知{% endif %}{% if media_stream.resolution %} · {{media_stream.resolution}}{%\
+    \ endif %}{% if file_size %} · {{file_size}}{% endif %}{% if media_stream.release_team\
+    \ %} · {{media_stream.release_team}}压制{% endif %}\n{% if intro -%}··········································\n\
+    {{intro|replace(' ','')|replace('\n','')}}{%- endif %}"
+  name: 剧集下载完成
+  title: ✅{{title}} {% if season_number %}S{{season_number}}{% endif %}{% if episodes
+    %}E{{episodes}}{% endif %}{% if rating %}  ⭐️{{"%.1f"|format(rating)}}{% endif
+    %}
+download_start_movie:
+  body: "上映于{{year}}年{% if site_name %}，由 {{nickname}} 下载自「{{site_name}}」{% else %}\
+    \ 手动添加的下载任务{% endif %} \n{% if media_stream.media_source %}{{media_stream.media_source}}{%\
+    \ else %} 媒体属性未知{% endif %}{% if media_stream.resolution %} · {{media_stream.resolution}}{%\
+    \ endif %}{% if file_size %} · {{file_size}}{% endif %}{% if media_stream.release_team\
+    \ %} · {{media_stream.release_team}}压制{% endif %}\n{% if intro -%}··········································\n\
+    {{intro|replace(' ','')|replace('\n','')}}{%- endif %}"
+  name: 电影开始下载
+  title: ⏬{{title}}{% if rating %}  ⭐️{{"%.1f"|format(rating)}}{% endif %}
+download_start_tv:
+  body: "上映于{{year}}年{% if site_name %}，由 {{nickname}} 下载自「{{site_name}}」{% else %}\
+    \ 手动添加的下载任务{% endif %} \n{% if media_stream.media_source %}{{media_stream.media_source}}{%\
+    \ else %} 媒体属性未知{% endif %}{% if media_stream.resolution %} · {{media_stream.resolution}}{%\
+    \ endif %}{% if file_size %} · {{file_size}}{% endif %}{% if media_stream.release_team\
+    \ %} · {{media_stream.release_team}}压制{% endif %}\n{% if intro -%}··········································\n\
+    {{intro|replace(' ','')|replace('\n','')}}{%- endif %}"
+  name: 剧集开始下载
+  title: ⏬{{title}} {% if season_number %}S{{season_number}}{% endif %}{% if episodes
+    %}E{{episodes}}{% endif %}{% if rating %}  ⭐️{{"%.1f"|format(rating)}}{% endif
+    %}
+name: 企业微信
+site_error:
+  body: 访问{{ site_name }}异常，错误原因：{{ reason }}
+  name: 站点异常
+  title: 站点异常
+sub_from_trending_movie:
+  body: '{{ nickname }} 已订阅 「{{ title }}」
+
+    {{country|join(" · ")}}{% if genres %}   {{genres|join(" · ")}}{% else %}   分类未知{%
+    endif %}{% if rating %}  ⭐️{{"%.1f"|format(rating)}}{% endif %}
+
+    {% if comment -%}··········································
+
+    {{comment|replace(''　'','''')|replace('' '','''')|replace(''
+
+    '','''')}}{%- endif %}'
+  name: 来自榜单的电影订阅
+  title: 榜单电影:{{ cn_name }}({{ release_year }}) 评分:{{ rating }}
+sub_from_trending_tv:
+  body: '{{ nickname }} 已订阅第 {{ season_number }} 季
+
+    {{country|join(" · ")}}{% if genres %}   {{genres|join(" · ")}}{% else %}   分类未知{%
+    endif %}{% if rating %}  ⭐️{{"%.1f"|format(rating)}}{% endif %}
+
+    {% if comment -%}··········································
+
+    {{comment|replace(''　'','''')|replace('' '','''')|replace(''
+
+    '','''')}}{%- endif %}'
+  name: 来自榜单的剧集订阅
+  title: 榜单剧集:{{ cn_name }}({{ release_year }}) 评分:{{ rating }}
+sub_movie:
+  body: '{% if not is_aired and  release_date %}将于{% endif %}{% if release_date %}{{
+    release_date }}上映{% else %}上映日期未知{% endif %}，由 {{ nickname }} 订阅
+
+    {{country|join(" · ")}}{% if genres %}   {{genres|join(" · ")}}{% else %}   分类未知{%
+    endif %}
+
+    {% if intro -%}··········································
+
+    {{intro|replace('' '','''')|replace(''
+
+    '','''')}}{%- endif %}'
+  name: 新增电影订阅
+  title: 🍿订阅：{{ cn_name }} {% if rating %}  ⭐️{{"%.1f"|format(rating)}}{% else %}{%
+    if not is_aired %}  未上映{% endif %}{% endif %}
+sub_tv:
+  body: '第 {{ season_number }} 季 共 {{episode_count}} 集 上映于{{ release_year }}年，由 {{
+    nickname }} 订阅
+
+    {{country|join(" · ")}}{% if genres %}   {{genres|join(" · ")}}{% else %}   分类未知{%
+    endif %}
+
+    {% if intro -%}··········································
+
+    {{intro|replace('' '','''')|replace(''
+
+    '','''')}}{%- endif %}'
+  name: 新增剧集订阅
+  title: 📺订阅：{{ cn_name }} {% if rating %}  ⭐️{{"%.1f"|format(rating)}}{% else %}{%
+    if not is_aired %}  未上映{% endif %}{% endif %}

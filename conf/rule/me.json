@@ -1,0 +1,183 @@
+{
+  "rule_name": "me",
+  "desc": "疯子的DIY策略",
+  "weights": {
+    "name_score": 0.3,
+    "type_score": 0.4,
+    "size_score": 0.03,
+    "upload_score": 0.08,
+    "download_score": 0,
+    "subtitle_score": 0.05,
+    "free_score": 0
+  },
+  "subtitle_keywords": [
+    "中字",
+    "中文",
+    "简繁",
+    "双语",
+    "中英",
+    "简+繁",
+    "繁体",
+    "繁英",	
+    "简中",
+    "繁中",	
+    "国英",
+	"简英",
+	"国粤",
+	"国配",
+	"国语",
+	"粤英",
+	"特效",
+	"简"
+  ],
+  "name_keywords": [
+      {
+        "keyword":"Oldboys",
+        "score":1000
+      },
+      {
+        "keyword":"CMCT",
+        "score":900
+      },
+      {
+        "keyword":"FRDS",
+        "score":880
+      },  
+      {
+        "keyword":"ADE",
+        "score":700
+      },	
+      {
+        "keyword":"PTer",
+        "score":700
+      },	
+      {
+        "keyword":"CMCTV",
+        "score":700
+      },	  
+      {
+        "keyword":"HDS",
+        "score":700
+      },
+      {
+        "keyword":"WiKi",
+        "score":700
+      },
+      {
+        "keyword":"CHD",
+        "score":700
+      }
+    ],
+  "type_keywords": [
+    {
+      "resolution": [
+        "2160p",
+        "2160i",
+        "4K"
+      ],
+      "codec": [
+        "Remux"
+      ],
+      "score": 0
+    },
+    {
+      "resolution": [
+        "1080p",
+        "1080i",
+        "1440p",
+        "1440i",
+        "2K"
+      ],
+      "codec": [
+        "Remux"
+      ],
+      "score": 5
+    },
+    {
+      "resolution": [
+        "2160p",
+        "2160i",
+        "4K"
+      ],
+      "codec": [
+        "H.265",
+        "x265"
+      ],
+      "score": 50
+    },
+    {
+      "resolution": [
+        "2160p",
+        "2160i",
+        "4K"
+      ],
+      "codec": [
+        "H.264",
+        "x264"
+      ],
+      "score": 60
+    },
+    {
+      "resolution": [
+        "1080p",
+        "1080i",
+        "1440p",
+        "1440i",
+        "2K"
+      ],
+      "codec": [
+        "H.264",
+        "x264"
+      ],
+      "score": 80
+    },
+    {
+      "resolution": [
+        "1080p",
+        "1080i",
+        "1440p",
+        "1440i",
+        "2K"
+      ],
+      "codec": [
+        "H.265",
+        "x265"
+      ],
+      "score": 70
+    },
+    {
+      "source": [
+        "WEB-DL"
+      ],
+      "resolution": [
+        "2160p",
+        "2160i",
+        "4K"
+      ],
+      "score": 30
+    },
+    {
+      "source": [
+        "WEB-DL"
+      ],
+      "resolution": [
+        "1080p",
+        "1080i",
+        "1440p",
+        "1440i",
+        "2K"
+      ],
+      "score": 20
+    },
+    {
+      "source": [
+        "Blu-ray"
+      ],
+      "codec": [
+        "HEVC",
+        "AVC"
+      ],
+      "score": -100
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+download_client:
+- is_default: true
+  monitor_all_torrents: true
+  name: qbtorrent
+  need_login: true
+  password: CZzj789456.
+  site_id: []
+  status: 1
+  type: qbittorrent
+  url: http://127.0.0.1:8079/
+  username: dinghao12601
+file_link:
+  disc_single_folder: false
+  exact_year: false
+  file_process_mode: link
+  fix_emby_bdmv_bug: false
+  movie:
+    filename: '{{name}} ({{year}}){%if version %} - {{version}}{% endif %}'
+    folder: '{{name}} ({{year}})'
+  recognize: true
+  tv:
+    filename: '{{name}} S{{season}}E{{ep_start}}{%if ep_end %}-E{{ep_end}}{% endif
+      %}{%if version %} - {{version}}{% endif %}'
+    folder: '{{name}} ({{year}})'
+  use_area_folder: false
+  use_unknown_dir: true
+free_download:
+  available_space: 2048
+  avg_statistics_period: 10
+  enable: false
+  maximum_active_torrent: 0
+  save_path: /downloads/free
+  upload_mbps_maximum: 2048
+frontend:
+  search_template:
+  - name: 默认
+    option:
+      category:
+      - Movie
+      - TV
+      - Documentary
+      - Anime
+      - Music
+      - AV
+      searchContent:
+      - searchDouban
+      - searchMediaServer
+      - searchSite
+      site:
+      - mteam
+      - hddolby
+      - pttime
+      - freefarm
+      - acgrip
+      - mikanani
+      - sukebei
+      - nyaa
+media_path:
+- download_path: /downloads/movie
+  file_process_mode: link
+  qbit_cate: ''
+  source_dir: /media/downloads/movie
+  target_dir: /media/library/movie
+  type: movie
+  use_area_folder: true
+- download_path: /downloads/TV
+  file_process_mode: link
+  qbit_cate: ''
+  source_dir: /media/downloads/TV
+  target_dir: /media/library/TV
+  type: tv
+  use_area_folder: true
+media_server:
+- api_key: 0593e3ddb549418093f11752fc793702
+  host: 127.0.0.1
+  https: false
+  internet_url: http://114.212.22.39:8096
+  master_server: true
+  name: emby
+  port: 8096
+  refresh_media_server: true
+  type: emby
+movie_metadata:
+  douban:
+    cookie: gr_user_id=280d1802-c71e-4b76-856f-6e8a5b078a1d; ll="118159"; bid=T9lwo_Zl4D8;
+      __utma=30149280.1150370499.1678897414.1679668776.1687281346.4; __utmc=30149280;
+      __utmz=30149280.1687281346.4.4.utmcsr=bing|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided);
+      __utmt=1; dbcl2="195170496:N34vV5YF7W4"; ck=CDvG; ap_v=0,6.0; push_noty_num=0;
+      push_doumail_num=0; __utmv=30149280.19517; frodotk_db="6d93605afa7dcd8248ba2110ef796886";
+      __utmt_douban=1; __utmb=30149280.16.10.1687281346; frodotk="56bc0bec74919bed043423c55db4d3c7";
+      talionusr="eyJpZCI6ICIxOTUxNzA0OTYiLCAibmFtZSI6ICJOaWNreWR1c2sifQ=="; Hm_lvt_6d4a8cfea88fa457c3127e14fb5fabc2=1687281560;
+      Hm_lpvt_6d4a8cfea88fa457c3127e14fb5fabc2=1687281560; _gid=GA1.2.432612135.1687281560;
+      _ga=GA1.1.1289124897.1687281560; _ga_Y4GN1R87RG=GS1.1.1687281560.1.1.1687281593.0.0.0
+notify_channel:
+- aes_key: null
+  agentid: '1000002'
+  corpid: ww819e5ac367d85380
+  corpsecret: y6tfRxkwvcgrwa6XiQGsUWJbyhoSqrBNYrb69K4vaLo
+  enable: false
+  name: 企业微信
+  notify_message:
+  - download_completed_movie
+  - download_completed_tv
+  - download_start_movie
+  - download_start_tv
+  - site_error
+  - sub_from_trending_movie
+  - sub_from_trending_tv
+  - sub_movie
+  - sub_tv
+  server_url: https://qyapi.weixin.qq.com
+  token: null
+  touser: '@all'
+  type: qywx
+- api: https://api2.pushdeer.com/message/push
+  enable: true
+  name: Pushdeer
+  notify_message:
+  - download_completed_movie
+  - download_completed_tv
+  - download_start_movie
+  - download_start_tv
+  - site_error
+  - sub_from_trending_movie
+  - sub_from_trending_tv
+  - sub_movie
+  - sub_tv
+  pushkey: PDU23827TOZtROVGbpdXH2FGC8886f2JxeP1YSvHQ
+  type: pushdeer
+scraper:
+  enable_download_image: true
+  generate_nfo: true
+  hd_background: true
+  hd_poster: true
+  image_source:
+  - TheMovieDB
+  - FanArt
+  langs_priority:
+  - zh
+  - en
+  person_nfo_path: /emby_person
+  season_image_source:
+  - TheMovieDB
+  - FanArt
+  use_cn_person_name: true
+server:
+  douban_poster_wall: true
+  site_max_workers: 36
+  web_search_result_limit: 0
+  web_search_timeout: 10
+smart_download:
+  douban:
+    default_score_rule: me
+    download_paths:
+    - area: []
+      cate: []
+      download_path: /downloads/movie
+      score_rule: compress
+      type: movie
+    - area: []
+      cate: []
+      download_path: /downloads/TV
+      score_rule: compress
+      type: tv
+    users:
+    - id: '195170496'
+      pull_time_range: '7'
+subscribe:
+  approval_required: false
+  download_process_executor_worker: 1
+  error_waiting_time: 600
+subtitle:
+  enable: true
+  exclude_area:
+  - 中国大陆
+  file_name_template: '{{ name }}.{{ language[0] }}{% if language[0] == "zh-cn" and
+    language | length == 2 %}.default{% endif%}{{ subtitle_ext }}'
+  filter_type:
+  - srt
+  - ass
+  finder_type:
+  - zimuku
+  not_found_stop_minutes: 4320
+  sync_language:
+  - zh-cn
+web:
+  host: '::'
+  port: 1329
+  server_url: null
