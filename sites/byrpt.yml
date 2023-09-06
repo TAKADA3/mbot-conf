@@ -2,7 +2,7 @@ id: byrpt
 name: 北邮人
 domain: https://byr.pt/
 encoding: UTF-8
-config_url:
+config_url: https://ghproxy.com/https://raw.githubusercontent.com/Nickydusk/mbot-conf/main/sites/byrpt.yml
 
 login:
   test:

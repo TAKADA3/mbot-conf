@@ -1,58 +1,57 @@
-#!DATA etag=c6fce1ce2b3f6ed95dfc981246b5a8c7a92b3ec71ddcfde0a585dc28614a00f0
-id: freefarm
-name: 自由农场
-domain: https://pt.0ff.cc/
+id: rousi
+name: 肉丝
+domain: https://rousi.zip/
 encoding: UTF-8
-config_url: 
+config_url: https://ghproxy.com/https://raw.githubusercontent.com/Nickydusk/mbot-conf/main/sites/rousi.yml
 
 login:
   test:
     selector: a[href="logout.php"]
 
 category_mappings:
-  - { id: 401, cate_level1: Movie, cate_level2: Movies|电影, cate_level2_desc: "Movies|电影"}
-  - { id: 402, cate_level1: TV, cate_level2: TV Series|电视剧, cate_level2_desc: "TV Series|电视剧" }
+  - { id: 401, cate_level1: Movie, cate_level2: Movies, cate_level2_desc: "Movies(电影)" }
+  - { id: 402, cate_level1: TV, cate_level2: TV, cate_level2_desc: "Movies(电影)" }
 
 userinfo:
-  path: https://pt.0ff.cc/index.php
+  path: https://rousi.zip/index.php
   item:
     selector: table[id="info_block"]
   fields:
     uid:
       default_value: 0
-      selector: a[href^="https://pt.0ff.cc/userdetails.php?id="]
+      selector: a[href^="userdetails.php?id="]
       attribute: href
       filters:
         - name: re_search
-          args: ['\d+', 0]
+          args: [ '\d+', 0 ]
     user_group:
-      default_value: ""
-      selector: a[href^="https://pt.0ff.cc/userdetails.php?id="]
+      default_value: ''
+      selector: a[href^="userdetails.php?id="]
       attribute: class
     username:
-      default_value: "未知用户名"
-      selector: a[href^="https://pt.0ff.cc/userdetails.php?id="]
+      default_value: '未知用户名'
+      selector: a[href^="userdetails.php?id="]
     share_ratio:
-      default_value: ""
+      default_value: ''
       selector: font[class="color_ratio"]
       method: next_sibling
       filters:
         - name: replace
-          args: ["无限", "inf"]
+          args: [ '无限','inf' ]
     uploaded:
       default_value: 0
       selector: font[class="color_uploaded"]
       method: next_sibling
       filters:
         - name: replace
-          args: ["无限", "inf"]
+          args: [ '无限','inf' ]
     downloaded:
       default_value: 0
       selector: font[class="color_downloaded"]
       method: next_sibling
       filters:
         - name: replace
-          args: ["无限", "inf"]
+          args: [ '无限','inf' ]
     seeding:
       default_value: 0
       selector: img[alt="Torrents seeding"]
@@ -65,11 +64,12 @@ userinfo:
       case:
         a[class^="VIP"]: true
         "*": false
-
 search:
   paths:
     - path: torrents.php
-      method: get
+      categories: [ "!", 410, 429, 424, 430, 426, 437, 431, 432, 436, 425, 433, 411, 412, 413, 406, 408, 434 ]
+    - path: special.php
+      categories: [ 410, 411, 412, 413, 429, 424, 430, 426, 437, 431, 432, 436, 425, 433]
   query:
     $raw: "{% for c in query.cates %}cat{{c}}=1&{% endfor %}"
     search: "{% if query.imdb_id %}{{query.imdb_id}}{%else%}{{query.keyword}}{% endif %}"
@@ -94,7 +94,7 @@ torrents:
       attribute: href
       filters:
         - name: re_search
-          args: ['\d+', 0]
+          args: [ '\d+', 0 ]
     title_default:
       selector: a[href^="details.php?id="]
     title_optional:
@@ -108,7 +108,7 @@ torrents:
       attribute: href
       filters:
         - name: replace
-          args: ["?", ""]
+          args: [ "?", "" ]
         - name: querystring
           args: cat
     details:
@@ -122,7 +122,7 @@ torrents:
       attribute: href
       filters:
         - name: re_search
-          args: ['tt\d+', 0]
+          args: [ 'tt\d+',0 ]
     date_elapsed:
       # 站点设置，已去时间 (默认)
       selector: td:nth-child(4) > span[title]
@@ -161,12 +161,12 @@ torrents:
         "*": 1
     free_deadline:
       default_value: "{% if fields['downloadvolumefactor']==0 %}{{max_time}}{% endif%}"
-      default_value_format: "%Y-%m-%d %H:%M:%S.%f"
+      default_value_format: '%Y-%m-%d %H:%M:%S.%f'
       selector: img.pro_free,img.pro_free2up
       attribute: onmouseover
       filters:
         - name: re_search
-          args: ['\d+-\d+-\d+ \d+:\d+:\d+', 0]
+          args: [ '\d+-\d+-\d+ \d+:\d+:\d+', 0 ]
         - name: dateparse
           args: "%Y-%m-%d %H:%M:%S"
     description:

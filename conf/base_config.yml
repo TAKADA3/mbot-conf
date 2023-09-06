@@ -92,28 +92,8 @@ movie_metadata:
       Hm_lpvt_6d4a8cfea88fa457c3127e14fb5fabc2=1687281560; _gid=GA1.2.432612135.1687281560;
       _ga=GA1.1.1289124897.1687281560; _ga_Y4GN1R87RG=GS1.1.1687281560.1.1.1687281593.0.0.0
 notify_channel:
-- aes_key: null
-  agentid: '1000002'
-  corpid: ww819e5ac367d85380
-  corpsecret: y6tfRxkwvcgrwa6XiQGsUWJbyhoSqrBNYrb69K4vaLo
-  enable: false
-  name: 企业微信
-  notify_message:
-  - download_completed_movie
-  - download_completed_tv
-  - download_start_movie
-  - download_start_tv
-  - site_error
-  - sub_from_trending_movie
-  - sub_from_trending_tv
-  - sub_movie
-  - sub_tv
-  server_url: https://qyapi.weixin.qq.com
-  token: null
-  touser: '@all'
-  type: qywx
 - api: https://api2.pushdeer.com/message/push
-  enable: true
+  enable: false
   name: Pushdeer
   notify_message:
   - download_completed_movie
